@@ -233,8 +233,8 @@ main {
 
 .profil-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 40px;
     align-items: start;
 }
 
@@ -658,4 +658,22 @@ a:focus-visible {
         width: 200px;
         height: 250px;
     }
+}
+.visi-misi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+.profil .judul-section {
+    margin-bottom: 25px;
+}
+
+.profil-highlight {
+    min-height: 0;
+}
+
+.profil-highlight p {
+    line-height: 1.6;
 }
