@@ -1,0 +1,679 @@
+/* =========================================
+   1. RESET / DASAR
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #202124;
+    background: #f1f3f4;
+}
+
+
+/* =========================================
+   2. VARIABEL WARNA
+   ========================================= */
+
+:root {
+    --primary: #F58220;
+    --primary-dark: #D95F02;
+    --accent: #F9B700;
+
+    --dark: #202124;
+    --white: #FFFFFF;
+    --off-white: #F8F8F6;
+    --light: #F1F3F4;
+    --border: #E5E5E5;
+
+    --max-width: 1120px;
+}
+
+
+/* =========================================
+   3. HALAMAN
+   ========================================= */
+
+.halaman {
+    width: min(100% - 2rem, var(--max-width));
+    margin: 1rem auto;
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   4. HEADER / HERO
+   ========================================= */
+
+.header {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 3rem;
+
+    padding: 3rem;
+
+    background: var(--white);
+    border-bottom: 4px solid var(--primary);
+}
+
+
+/* Logo */
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo img {
+    display: block;
+    width: min(100%, 390px);
+    height: auto;
+}
+
+
+/* Isi header */
+
+.header-content {
+    max-width: 650px;
+}
+
+.label-kampus {
+    margin: 0 0 0.75rem;
+
+    color: var(--primary-dark);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.header h1 {
+    margin: 0 0 1.25rem;
+
+    color: var(--dark);
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.deskripsi {
+    max-width: 600px;
+    margin: 0 0 1.5rem;
+
+    color: #555;
+    font-size: 1.05rem;
+}
+
+
+/* Tombol */
+
+.tombol {
+    display: inline-block;
+
+    padding: 0.75rem 1.2rem;
+
+    color: var(--white);
+    background: var(--primary);
+
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.tombol:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+
+/* =========================================
+   5. NAVIGASI
+   ========================================= */
+
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    padding: 0.75rem 2rem;
+
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.menu a {
+    display: block;
+
+    padding: 0.55rem 0.9rem;
+
+    color: var(--dark);
+
+    border-radius: 4px;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--white);
+    background: var(--primary);
+}
+
+
+/* =========================================
+   6. MAIN / SECTION
+   ========================================= */
+
+main {
+    padding: 0;
+}
+
+.panel {
+    padding: 4rem 3rem;
+}
+
+.panel-layanan {
+    background: var(--off-white);
+}
+
+.judul-section {
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.label-section {
+    margin: 0 0 0.4rem;
+
+    color: var(--primary-dark);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.judul-section h2 {
+    margin: 0 0 0.75rem;
+
+    color: var(--dark);
+
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.judul-section > p:last-child {
+    color: #666;
+}
+
+
+/* =========================================
+   7. PROFIL
+   ========================================= */
+
+.profil-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.profil-text {
+    font-size: 1.05rem;
+}
+
+.profil-highlight {
+    padding: 1.75rem;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.profil-highlight h3 {
+    margin: 0.5rem 0;
+
+    color: var(--dark);
+}
+
+.profil-highlight p {
+    margin-bottom: 0;
+    color: #666;
+}
+
+.nomor,
+.kartu-nomor {
+    color: var(--primary-dark);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   8. CARD / GRID
+   ========================================= */
+
+.kartu-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 1.25rem;
+}
+
+.kartu {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 260px;
+
+    padding: 1.75rem;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.kartu:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.kartu h3 {
+    margin: 0.6rem 0 0.75rem;
+
+    color: var(--dark);
+
+    font-size: 1.25rem;
+}
+
+.kartu p {
+    margin-top: 0;
+
+    color: #666;
+}
+
+.link-kartu {
+    margin-top: auto;
+
+    color: var(--primary-dark);
+
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link-kartu:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2rem 3rem;
+
+    color: var(--white);
+    background: var(--dark);
+
+    border-top: 4px solid var(--primary);
+}
+
+.footer strong {
+    font-size: 1rem;
+}
+
+.footer p {
+    margin: 0.35rem 0 0;
+
+    color: #cfcfcf;
+    font-size: 0.9rem;
+}
+
+.footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-menu a {
+    color: var(--white);
+
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   10. ACCESSIBILITY / FOCUS
+   ========================================= */
+
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+
+/* Skip link */
+
+.lewati {
+    position: absolute;
+
+    left: -10000px;
+    top: auto;
+
+    padding: 0.75rem 1rem;
+
+    color: var(--dark);
+    background: var(--white);
+
+    border: 2px solid var(--primary);
+
+    font-weight: 700;
+}
+
+.lewati:focus {
+    left: 1rem;
+    top: 1rem;
+
+    z-index: 100;
+}
+
+
+/* =========================================
+   11. RESPONSIVE TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .header {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .header-content {
+        margin: 0 auto;
+    }
+
+    .profil-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kartu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================
+   12. RESPONSIVE MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .halaman {
+        width: 100%;
+        margin: 0;
+    }
+
+    .header {
+        gap: 1.5rem;
+
+        padding: 2rem 1.25rem;
+    }
+
+    .header-logo img {
+        width: min(100%, 300px);
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .deskripsi {
+        font-size: 1rem;
+    }
+
+    .menu {
+        padding: 0.65rem 1rem;
+    }
+
+    .menu a {
+        flex: 1 1 auto;
+
+        text-align: center;
+    }
+
+    .panel {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .kartu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kartu {
+        min-height: auto;
+    }
+
+    .footer {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .footer-menu {
+        gap: 0.75rem;
+    }
+}
+
+
+/* =========================================
+   13. LAYAR SANGAT KECIL
+   ========================================= */
+
+@media (max-width: 375px) {
+
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .label-kampus {
+        font-size: 0.7rem;
+    }
+
+    .menu a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* =========================================
+   DATA DIRI MAHASISWA
+   ========================================= */
+
+.data-diri {
+    padding: 4rem 3rem;
+
+    background: #ffffff;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.data-diri-grid {
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 3rem;
+
+    align-items: start;
+}
+
+
+/* FOTO MAHASISWA */
+
+.foto-mahasiswa {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.foto-mahasiswa img {
+    display: block;
+
+    width: 240px;
+    height: 300px;
+
+    object-fit: cover;
+
+    border: 4px solid var(--primary);
+
+    border-radius: 8px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* INFORMASI DATA DIRI */
+
+.informasi-mahasiswa {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+.data-item {
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 1rem;
+
+    padding: 1rem 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.data-item span {
+    color: #666;
+
+    font-weight: 600;
+}
+
+
+.data-item strong {
+    color: var(--dark);
+}
+
+
+/* RESPONSIVE DATA DIRI */
+
+@media (max-width: 900px) {
+
+    .data-diri-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .informasi-mahasiswa {
+        text-align: left;
+    }
+
+    .foto-mahasiswa img {
+        width: 220px;
+        height: 280px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .data-diri {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .data-item {
+        grid-template-columns: 1fr;
+
+        gap: 0.25rem;
+    }
+
+    .foto-mahasiswa img {
+        width: 200px;
+        height: 250px;
+    }
+}
+.visi-misi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+.profil .judul-section {
+    margin-bottom: 25px;
+}
+
+.profil-highlight {
+    min-height: 0;
+}
+
+.profil-highlight p {
+    line-height: 1.6;
+}
