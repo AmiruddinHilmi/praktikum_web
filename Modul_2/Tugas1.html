@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Foodcourt | Modern Dining</title>
+    <style>
+        :root {
+            --primary-orange: #E65100;
+            --accent-gold: #FFB300;
+            --bg-dark: #121212;
+            --card-bg: #1E1E1E;
+            --text-light: #F5F5F5;
+            --text-muted: #B0BEC5;
+            --border-color: #2C2C2C;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        #header {
+            background: linear-gradient(135deg, rgba(230, 81, 0, 0.9), rgba(18, 18, 18, 0.95)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-orange);
+            box-shadow: 0 4px 20px rgba(230, 81, 0, 0.3);
+        }
+
+        #header h1 {
+            font-size: 2.8rem;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        #header p {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Menu Table Styling */
+        .menu-section h2 {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 12px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary-orange);
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            padding: 16px;
+            text-align: left;
+        }
+
+        td {
+            padding: 18px 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background-color: rgba(230, 81, 0, 0.08);
+            transition: background 0.3s ease;
+        }
+
+        .food-img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            border: 1px solid var(--primary-orange);
+        }
+
+        .food-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .food-price {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Link Button */
+        .action-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-reservation {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(45deg, var(--primary-orange), #FF7043);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-reservation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.6);
+            background: linear-gradient(45deg, #FF7043, var(--primary-orange));
+        }
+
+        /* Footer Section */
+        #footer {
+            background-color: #0A0A0A;
+            border-top: 1px solid var(--border-color);
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        #footer span {
+            color: var(--primary-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div id="header">
+        <h1>Nusantara Culinary Haven</h1>
+        <p>Pengalaman Kuliner Mewah & Autentik</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="content" class="menu-section">
+            <h2>Daftar Menu Eksklusif</h2>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Gambar</th>
+                            <th>Nama Makanan</th>
+                            <th>Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" alt="Nasi Goreng Wagyu" class="food-img"></td>
+                            <td class="food-name">Nasi Goreng Wagyu Royal</td>
+                            <td class="food-price">Rp 85.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=300&q=80" alt="Mie Ayam Truffle" class="food-img"></td>
+                            <td class="food-name">Ramen / Mie Ayam Truffle Oil</td>
+                            <td class="food-price">Rp 65.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=300&q=80" alt="Ayam Bakar Madu" class="food-img"></td>
+                            <td class="food-name">Ayam Bakar Madu Spesial</td>
+                            <td class="food-price">Rp 75.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Link Akses Foodcourt -->
+            <div class="action-link">
+                <a href="https://www.google.com" target="_blank" class="btn-reservation">RESERVASI MEJA ONLINE</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div id="footer">
+        <p>Copyright &copy; 2026 <span>Nama Anda</span>. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>
