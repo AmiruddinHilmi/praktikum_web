@@ -2,8 +2,22 @@
 <?php
 include 'config.php';
 
-// Mengambil seluruh data dari database
-$query = mysqli_query($conn, "SELECT * FROM alat_elektromedis ORDER BY id DESC");
+$query = mysqli_query(
+    $conn,
+    "SELECT * FROM alat_elektromedis ORDER BY id DESC"
+);
+
+$total = mysqli_num_rows(
+    mysqli_query($conn, "SELECT id FROM alat_elektromedis")
+);
+
+$tahun = mysqli_num_rows(
+    mysqli_query($conn, "SELECT DISTINCT tahun FROM alat_elektromedis")
+);
+
+$merek = mysqli_num_rows(
+    mysqli_query($conn, "SELECT DISTINCT merek FROM alat_elektromedis")
+);
 ?>
 
 <!DOCTYPE html>
@@ -11,121 +25,160 @@ $query = mysqli_query($conn, "SELECT * FROM alat_elektromedis ORDER BY id DESC")
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventaris Alat Elektromedis</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background-color: #f4f6f9;
-        }
+    <title>Inventaris Alat Elektromedis | UMPKU</title>
 
-        h2 {
-            color: #163b65;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #163b65;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .tambah {
-            display: inline-block;
-            padding: 10px 15px;
-            background: #198754;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .edit {
-            color: blue;
-        }
-
-        .hapus {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h2>DATA INVENTARIS ALAT ELEKTROMEDIS</h2>
+<header class="header">
 
-    <p>Aplikasi CRUD menggunakan PHP Native dan MySQL</p>
+    <div class="brand">
+        <img src="logo-umpku.png" alt="Logo UMPKU">
 
-    <a href="add.php" class="tambah">+ Tambah Data Alat</a>
+        <div class="brand-info">
+            <h2>MEDICAL INVENTORY SYSTEM</h2>
+            <p>Sistem Informasi Inventaris Alat Elektromedis</p>
+        </div>
+    </div>
 
-    <table>
-        <tr>
-            <th>No</th>
-            <th>Nama Alat</th>
-            <th>Tahun</th>
-            <th>Merek</th>
-            <th>Lokasi</th>
-            <th>Aksi</th>
-        </tr>
+</header>
 
-        <?php
-        $no = 1;
+<nav class="navbar">
+    <a href="index.php">Dashboard</a>
+    <a href="add.php">Tambah Alat</a>
+</nav>
 
-        while ($data = mysqli_fetch_assoc($query)) {
-        ?>
+<main class="container">
 
-        <tr>
-            <td><?php echo $no++; ?></td>
+    <div class="page-heading">
+        <h1>Dashboard Inventaris</h1>
+        <p>Selamat datang di sistem pengelolaan data alat elektromedis.</p>
+    </div>
 
-            <td>
-                <?php echo htmlspecialchars($data['nama_alat']); ?>
-            </td>
+    <section class="stats">
 
-            <td>
-                <?php echo htmlspecialchars($data['tahun']); ?>
-            </td>
+        <div class="stat-card">
+            <h3>Total Alat Elektromedis</h3>
+            <strong><?php echo $total; ?></strong>
+        </div>
 
-            <td>
-                <?php echo htmlspecialchars($data['merek']); ?>
-            </td>
+        <div class="stat-card">
+            <h3>Jumlah Tahun Pengadaan</h3>
+            <strong><?php echo $tahun; ?></strong>
+        </div>
 
-            <td>
-                <?php echo htmlspecialchars($data['lokasi']); ?>
-            </td>
+        <div class="stat-card">
+            <h3>Jumlah Merek</h3>
+            <strong><?php echo $merek; ?></strong>
+        </div>
 
-            <td>
-                <a class="edit" href="edit.php?id=<?php echo $data['id']; ?>">
-                    Edit
-                </a>
+    </section>
 
-                |
+    <section class="card">
 
-                <a class="hapus"
-                   href="delete.php?id=<?php echo $data['id']; ?>"
-                   onclick="return confirm('Yakin ingin menghapus data ini?')">
-                    Hapus
-                </a>
-            </td>
-        </tr>
+        <div class="card-header">
 
-        <?php } ?>
+            <h2>Data Inventaris Alat</h2>
 
-    </table>
+            <a href="add.php" class="btn btn-primary">
+                + Tambah Data Alat
+            </a>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Alat</th>
+                        <th>Tahun</th>
+                        <th>Merek</th>
+                        <th>Lokasi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                <?php if (mysqli_num_rows($query) > 0): ?>
+
+                    <?php $no = 1; ?>
+
+                    <?php while ($data = mysqli_fetch_assoc($query)): ?>
+
+                    <tr>
+
+                        <td><?php echo $no++; ?></td>
+
+                        <td>
+                            <strong>
+                                <?php echo htmlspecialchars($data['nama_alat']); ?>
+                            </strong>
+                        </td>
+
+                        <td>
+                            <span class="badge-year">
+                                <?php echo htmlspecialchars($data['tahun']); ?>
+                            </span>
+                        </td>
+
+                        <td><?php echo htmlspecialchars($data['merek']); ?></td>
+
+                        <td><?php echo htmlspecialchars($data['lokasi']); ?></td>
+
+                        <td>
+                            <div class="action">
+
+                                <a class="btn btn-edit"
+                                   href="edit.php?id=<?php echo $data['id']; ?>">
+                                    Edit
+                                </a>
+
+                                <a class="btn btn-delete"
+                                   href="delete.php?id=<?php echo $data['id']; ?>"
+                                   onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                    Hapus
+                                </a>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <?php endwhile; ?>
+
+                <?php else: ?>
+
+                    <tr>
+                        <td colspan="6" class="empty">
+                            Belum ada data alat elektromedis.
+                            Silakan tambahkan data baru.
+                        </td>
+                    </tr>
+
+                <?php endif; ?>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p><strong>UNIVERSITAS MUHAMMADIYAH PKU SURAKARTA</strong></p>
+    <p>Sistem Inventaris Alat Elektromedis</p>
+    <p>© <?php echo date('Y'); ?> | Program Studi D4 Elektromedis</p>
+</footer>
 
 </body>
 </html>

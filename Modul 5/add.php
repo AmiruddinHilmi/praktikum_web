@@ -6,10 +6,10 @@ $pesan = "";
 
 if (isset($_POST['simpan'])) {
 
-    $nama_alat = $_POST['nama_alat'];
-    $tahun = $_POST['tahun'];
-    $merek = $_POST['merek'];
-    $lokasi = $_POST['lokasi'];
+    $nama_alat = trim($_POST['nama_alat']);
+    $tahun = (int) $_POST['tahun'];
+    $merek = trim($_POST['merek']);
+    $lokasi = trim($_POST['lokasi']);
 
     $query = "INSERT INTO alat_elektromedis
               (nama_alat, tahun, merek, lokasi)
@@ -27,9 +27,11 @@ if (isset($_POST['simpan'])) {
     );
 
     if (mysqli_stmt_execute($stmt)) {
-        $pesan = "Data alat berhasil ditambahkan!";
+        mysqli_stmt_close($stmt);
+        header("Location: index.php");
+        exit;
     } else {
-        $pesan = "Gagal menambahkan data: " . mysqli_error($conn);
+        $pesan = "Gagal menyimpan data alat.";
     }
 
     mysqli_stmt_close($stmt);
@@ -40,43 +42,122 @@ if (isset($_POST['simpan'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Tambah Alat Elektromedis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tambah Alat Elektromedis | UMPKU</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h2>Tambah Data Alat Elektromedis</h2>
+<header class="header">
 
-    <?php if ($pesan != ""): ?>
-        <p><?php echo htmlspecialchars($pesan); ?></p>
-    <?php endif; ?>
+    <div class="brand">
+        <img src="logo-umpku.png" alt="Logo UMPKU">
 
-    <form method="POST">
+        <div class="brand-info">
+            <h2>MEDICAL INVENTORY SYSTEM</h2>
+            <p>Sistem Informasi Inventaris Alat Elektromedis</p>
+        </div>
+    </div>
 
-        <label>Nama Alat:</label><br>
-        <input type="text" name="nama_alat" required>
-        <br><br>
+</header>
 
-        <label>Tahun:</label><br>
-        <input type="number" name="tahun"
-               min="1901" max="2155" required>
-        <br><br>
+<nav class="navbar">
+    <a href="index.php">Dashboard</a>
+    <a href="add.php">Tambah Alat</a>
+</nav>
 
-        <label>Merek:</label><br>
-        <input type="text" name="merek" required>
-        <br><br>
+<main class="container">
 
-        <label>Lokasi:</label><br>
-        <input type="text" name="lokasi" required>
-        <br><br>
+    <div class="page-heading">
+        <h1>Tambah Data Alat</h1>
+        <p>Masukkan informasi alat elektromedis ke dalam sistem inventaris.</p>
+    </div>
 
-        <button type="submit" name="simpan">
-            Simpan Data
-        </button>
+    <section class="card form-card">
 
-    </form>
+        <div class="card-header">
+            <h2>Formulir Alat Elektromedis</h2>
+        </div>
 
-    <br>
-    <a href="index.php">Kembali ke Halaman Utama</a>
+        <?php if ($pesan != ""): ?>
+            <div class="alert">
+                <?php echo htmlspecialchars($pesan); ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST">
+
+            <div class="form-group">
+                <label>Nama Alat Elektromedis</label>
+                <input
+                    type="text"
+                    name="nama_alat"
+                    placeholder="Contoh: Patient Monitor"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Tahun Pengadaan</label>
+                <input
+                    type="number"
+                    name="tahun"
+                    placeholder="Contoh: 2024"
+                    min="1901"
+                    max="2155"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Merek Alat</label>
+                <input
+                    type="text"
+                    name="merek"
+                    placeholder="Contoh: Mindray"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Lokasi Alat</label>
+                <input
+                    type="text"
+                    name="lokasi"
+                    placeholder="Contoh: Ruang ICU"
+                    required
+                >
+            </div>
+
+            <div class="form-actions">
+
+                <button type="submit"
+                        name="simpan"
+                        class="btn btn-primary">
+                    Simpan Data
+                </button>
+
+                <a href="index.php"
+                   class="btn btn-secondary">
+                    Kembali
+                </a>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p><strong>UNIVERSITAS MUHAMMADIYAH PKU SURAKARTA</strong></p>
+    <p>Sistem Inventaris Alat Elektromedis</p>
+    <p>© <?php echo date('Y'); ?> | Program Studi D4 Elektromedis</p>
+</footer>
 
 </body>
 </html>
