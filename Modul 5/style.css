@@ -386,3 +386,272 @@ tbody tr:last-child td {
         font-size: 22px;
     }
 }
+
+
+/* ==========================================
+   NAVBAR AUTHENTICATION - UMPKU
+========================================== */
+
+body nav.main-navbar {
+    width: 100%;
+    min-height: 65px;
+    padding: 0 5.3%;
+    background-color: #172B4D !important;
+    border-bottom: 4px solid #F36B16;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+/* MENU KIRI */
+
+body nav.main-navbar .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+body nav.main-navbar .nav-link {
+    display: inline-flex;
+    align-items: center;
+
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 22px 0;
+    border-bottom: 3px solid transparent;
+
+    transition: 0.3s;
+}
+
+body nav.main-navbar .nav-link:hover,
+body nav.main-navbar .nav-link.active {
+    color: #F5B51B !important;
+    border-bottom-color: #F36B16;
+}
+
+/* AREA PENGGUNA */
+
+body nav.main-navbar .nav-account {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
+}
+
+body nav.main-navbar .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+body nav.main-navbar .user-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #F36B16;
+    color: #FFFFFF;
+
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+body nav.main-navbar .user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+body nav.main-navbar .user-label {
+    color: #B9C7D9;
+    font-size: 10px;
+}
+
+body nav.main-navbar .user-details strong {
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+/* FORM LOGOUT */
+
+body nav.main-navbar .nav-account form {
+    display: block;
+    margin: 0;
+}
+
+body nav.main-navbar .logout-btn {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background: #DC3545;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+body nav.main-navbar .logout-btn:hover {
+    background: #B52A37;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    body nav.main-navbar {
+        padding: 14px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    body nav.main-navbar .nav-menu {
+        gap: 24px;
+    }
+
+    body nav.main-navbar .nav-link {
+        padding: 8px 0;
+    }
+
+    body nav.main-navbar .nav-account {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    body nav.main-navbar .user-details strong {
+        font-size: 11px;
+    }
+
+    body nav.main-navbar .logout-btn {
+        padding: 9px 15px;
+    }
+}
+
+/* NAVBAR GLOBAL SEMUA HALAMAN */
+
+.navbar.main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 65px;
+    padding: 0 5.3%;
+    background: #172B4D;
+    border-bottom: 4px solid #F36B16;
+    gap: 15px;
+}
+
+.navbar.main-navbar .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar.main-navbar .nav-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 22px 0;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar.main-navbar .nav-link:hover,
+.navbar.main-navbar .nav-link.active {
+    color: #F5B51B;
+    border-bottom-color: #F36B16;
+}
+
+.navbar.main-navbar .nav-account {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar.main-navbar .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar.main-navbar .user-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #F36B16;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar.main-navbar .user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.navbar.main-navbar .user-label {
+    color: #B9C7D9;
+    font-size: 10px;
+}
+
+.navbar.main-navbar .user-details strong {
+    color: white;
+    font-size: 13px;
+}
+
+.navbar.main-navbar .nav-account form {
+    margin: 0;
+}
+
+.navbar.main-navbar .logout-btn {
+    background: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 19px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar.main-navbar .logout-btn:hover {
+    background: #B52A37;
+}
+
+@media (max-width: 650px) {
+    .navbar.main-navbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 5%;
+    }
+
+    .navbar.main-navbar .nav-account {
+        justify-content: space-between;
+    }
+}

@@ -1,6 +1,6 @@
-
 <?php
-include 'config.php';
+require_once __DIR__ . '/auth/auth_check.php';
+require_once __DIR__ . '/config.php';
 
 // Memeriksa ID dari URL
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
