@@ -44,7 +44,7 @@ Kolom:
 5. Letakkan folder project di dalam htdocs.
 6. Buka browser dan akses:
 
-http://localhost/praktikum_web/Modul%205/index.php
+http://localhost/FOLDER_PEMROGRAMAN/UTS%20PEMROGRAMAN%20WEB/index.php
 
 ## File Program
 - config.php
